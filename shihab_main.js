@@ -134,8 +134,10 @@ shihab_worker.onmessage = function mehedi_onMessage(sshihabb007_event) {
     } else if (shihab_status_state === 'complete') {
         document.getElementById('shihab_status_text').innerText = "Transcription Finished!";
         sshihabb007_copy_btn.classList.remove('hidden');
-        if (mehedi_final_output && mehedi_final_output.text) {
+        if (mehedi_final_output && mehedi_final_output.text && mehedi_final_output.text.trim().length > 0) {
              sshihabb007_transcript_content.innerText = mehedi_final_output.text;
+        } else {
+             sshihabb007_transcript_content.innerHTML = `<span class="text-zinc-500">No speech detected, or Local AI failed to process. If using Local AI, try switching to <b>Gemini 2.5</b> in Settings.</span>`;
         }
     } else if (shihab_status_state === 'loading') {
         document.getElementById('shihab_status_text').innerText = mehedi_message_text || "Loading AI model...";

@@ -1,6 +1,6 @@
 // Author: Mehedi Hasan shihab
 
-const shihab_worker = new Worker('mehedi_worker.js', { type: 'module' });
+const shihab_worker = new Worker(new URL('./mehedi_worker.js', import.meta.url), { type: 'module' });
 const mehedi_audio_input = document.getElementById('mehedi_audio_input');
 const sshihabb007_transcript_content = document.getElementById('mehedi_transcript_content');
 const shihab_drop_zone = document.getElementById('shihab_drop_zone');
